@@ -16,6 +16,7 @@ import java.util.Scanner;
               }
           }
 
+
           static No criarLista(int n) {
               No cabeca = new No(1);
               //Quando você escreve new No(1), está criando um objeto da classe No e passando o valor 1 para o construtor.
