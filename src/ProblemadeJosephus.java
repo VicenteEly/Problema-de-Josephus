@@ -45,7 +45,7 @@ import java.util.Scanner;
               //repeticao para verificar proximo no
               while (atual.proximo != atual) {
                   No anterior = atual;
-                  for (int i = 0; i < K - 1; i++) {
+                  for (int i = 0; i < K - 2; i++) {
                       anterior = anterior.proximo;
                   }
                   No eliminado = anterior.proximo;
