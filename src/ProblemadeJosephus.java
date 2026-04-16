@@ -19,7 +19,6 @@ import java.util.Scanner;
 
           static No criarLista(int n) {
               No cabeca = new No(1);
-              //Quando você escreve new No(1), está criando um objeto da classe No e passando o valor 1 para o construtor.
               No atual = cabeca;
               for (int i = 2; i <= n; i++) {
                   atual.proximo = new No(i);
@@ -34,11 +33,11 @@ import java.util.Scanner;
               //Verifica se N e K são válidos (≥ 1). Se algum for inválido, exibe erro e encerra o programa com System.exit(1).
               if (N < 1) {
                   System.out.println("Erro: N = numero ivalido");
+                  return -1;
               }
               if (K < 1) {
                   System.out.println("Erro: K = numero ivalido");
-              } else {
-                  System.out.println("Valido!");
+                  return -1;
               }
 
               No atual = criarLista(N);
@@ -51,10 +50,9 @@ import java.util.Scanner;
                   }
                   No eliminado = anterior.proximo;
                   anterior.proximo = eliminado.proximo;
+                  eliminado.proximo = null;
                   atual = anterior.proximo; //processo que atualiza o no
               }
-              System.out.println("Casa eliminada: " + atual.proximo.valor);
-              System.out.println("Sobrevivente: " + atual.valor);
               return atual.valor;
           }
 
@@ -73,20 +71,20 @@ import java.util.Scanner;
                   int resultado = validacaoJosephus(N, K);
                   if (resultado != -1) {
                       //Chama o metodo validar() com os valores lidos e imprime a posição do sobrevivente.
-                      System.out.println("o numero da casa do Sobrevivente é: " + validacaoJosephus(N, K));
+                      System.out.println("Sobrevivente: " + resultado);
                   }
               }
               ler.close();
               //Libera o recurso de Scanner.
 
               //Usuário digita N e K
-              //        ↓
+              //
               //Valida se N ≥ 1 e K ≥ 1
-              //        ↓
+              //
               //Executa o loop iterativo
-              //        ↓
+              //
               //Retorna posição do sobrevivente (base 1)
-              //        ↓
+              //
               //Exibe o resultado
           }
       }
